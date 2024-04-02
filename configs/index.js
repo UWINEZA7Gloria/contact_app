@@ -1,3 +1,5 @@
+import dotenv from "dotenv"
+dotenv.config()
 const configs = {
     port: process.env.PORT || 3000,
     mongoURI: process.env.MONGODB_URI,
