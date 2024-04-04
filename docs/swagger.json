@@ -1,0 +1,146 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "ContactManagement",
+      "description": "API documentation for contactManagement with all  CRUD operations",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "",
+    "schemes": ["http", "https"],
+    "paths": {
+      "/contacts": {
+        "post": {
+          "summary": "Create a new contact",
+          "description": "Create a new contact",
+          "tags": ["Contacts"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/Contact"
+              },
+              "required": true,
+              "description": "Contact object"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Contact created"
+            }
+          }
+        }
+      },
+      "/contacts/:id": {
+        "patch": {
+          "summary": "Update a contact by ID",
+          "description": "Update a contact by ID",
+          "tags": ["Contacts"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the contact to update",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/Contact"
+              },
+              "required": true,
+              "description": "Updated contact object"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Contact updated"
+            },
+            "404": {
+              "description": "Contact not found"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a contact by ID",
+          "description": "Delete a contact by ID",
+          "tags": ["Contacts"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the contact to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Contact deleted"
+            },
+            "404": {
+              "description": "Contact not found"
+            }
+          }
+        },
+        "get": {
+          "summary": "Get a contact by ID",
+          "description": "Get a contact by ID",
+          "tags": ["Contacts"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the contact to retrieve",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "404": {
+              "description": "Contact not found"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "workPhone": {
+            "type": "string"
+          },
+          "address":{
+            "type":"string"
+          },
+          "company":{
+            "type":"string"
+          },
+          "profilePicture":{
+            "type":"string"
+          }
+        },
+        "required": ["firstName", "lastName", "email", "phone", "workPhone"]
+      }
+    }
+  }
+  
