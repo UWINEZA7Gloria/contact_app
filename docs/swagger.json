@@ -30,10 +30,31 @@
               "description": "Contact created"
             }
           }
+        },
+        "get": {
+          "summary": "get all contacts",
+          "description": "getting all contacts",
+          "tags": ["Contacts"],
+          "parameters": [
+            {
+               "name": "",
+               "in": "path",
+              "schema": {
+                "$ref": "#/definitions/Contact"
+              },
+              "required": true,
+              "description": "Contact object"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "get all contact"
+            }
+          }
         }
       },
-      "/contacts/:id": {
-        "patch": {
+      "/contacts/{id}": {
+        "put": {
           "summary": "Update a contact by ID",
           "description": "Update a contact by ID",
           "tags": ["Contacts"],
